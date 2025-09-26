@@ -167,9 +167,12 @@ reports/
 logs/
 *.log
 checkpoints/
-models/
+# Data directories (not source code)
 data/
-datasets/
+checkpoints/
+# But allow source code directories
+!src/mlperf_lite/models/
+!src/mlperf_lite/datasets/
 wandb/
 tensorboard_logs/
 mlruns/
