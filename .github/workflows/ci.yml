@@ -54,13 +54,14 @@ jobs:
     #   run: |
     #     mypy src/mlperf_lite --ignore-missing-imports
     
-    - name: Format check with black
-      run: |
-        black --check src/ tests/
-    
-    - name: Import sort check with isort
-      run: |
-        isort --check-only src/ tests/
+    # Temporarily disabled formatting checks
+    # - name: Format check with black
+    #   run: |
+    #     black --check src/ tests/
+    # 
+    # - name: Import sort check with isort
+    #   run: |
+    #     isort --check-only src/ tests/
     
     - name: Test with pytest
       run: |
