@@ -1,0 +1,33 @@
+# BERT SST-2 Benchmark Configuration
+dataset:
+  name: sst2
+  params:
+    data_dir: "./data/sst2"
+    batch_size: 32
+    num_workers: 4
+    model_name: bert-base-uncased
+    max_length: 128
+
+model:
+  name: bert
+  params:
+    model_name: bert-base-uncased
+    dropout_rate: 0.1
+    learning_rate: 2e-5
+    weight_decay: 0.01
+    scheduler: linear
+
+training:
+  epochs: 3
+  target_accuracy: 0.90
+  early_stopping_patience: 3
+  params:
+    mixed_precision: true
+    gradient_accumulation_steps: 1
+
+benchmark:
+  output_dir: "./results/bert_sst2"
+  device: cuda
+  save_checkpoints: true
+  monitor_energy: true
+  monitor_hardware: true

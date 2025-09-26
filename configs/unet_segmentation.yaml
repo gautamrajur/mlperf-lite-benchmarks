@@ -1,0 +1,34 @@
+# UNet Segmentation Benchmark Configuration
+dataset:
+  name: cifar10  # Using CIFAR-10 as placeholder, would need custom segmentation dataset
+  params:
+    data_dir: "./data/segmentation"
+    batch_size: 16
+    num_workers: 4
+    download: true
+    normalize: true
+    augment: true
+
+model:
+  name: unet
+  params:
+    in_channels: 3
+    optimizer: adam
+    learning_rate: 1e-4
+    weight_decay: 1e-5
+    scheduler: step
+
+training:
+  epochs: 50
+  target_accuracy: 0.85
+  early_stopping_patience: 10
+  params:
+    mixed_precision: false
+    gradient_accumulation_steps: 1
+
+benchmark:
+  output_dir: "./results/unet_segmentation"
+  device: cuda
+  save_checkpoints: true
+  monitor_energy: true
+  monitor_hardware: true

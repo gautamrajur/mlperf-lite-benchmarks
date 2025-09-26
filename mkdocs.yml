@@ -1,0 +1,79 @@
+site_name: MLPerf Lite Benchmarks
+site_description: Production-grade MLPerf-style benchmarking framework
+site_author: MLPerf Lite Team
+site_url: https://mlperf-lite-benchmarks.readthedocs.io
+
+repo_name: mlperf-lite/mlperf-lite-benchmarks
+repo_url: https://github.com/mlperf-lite/mlperf-lite-benchmarks
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.top
+    - search.highlight
+    - search.share
+    - toc.follow
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.snippets
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - tables
+  - attr_list
+  - md_in_html
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Installation: getting-started/installation.md
+    - Quick Start: getting-started/quick-start.md
+    - Configuration: getting-started/configuration.md
+  - User Guide:
+    - Datasets: user-guide/datasets.md
+    - Models: user-guide/models.md
+    - Benchmarks: user-guide/benchmarks.md
+    - Monitoring: user-guide/monitoring.md
+    - Reporting: user-guide/reporting.md
+  - API Reference:
+    - Datasets: api/datasets.md
+    - Models: api/models.md
+    - Benchmarks: api/benchmarks.md
+    - Monitoring: api/monitoring.md
+    - Utils: api/utils.md
+  - Examples:
+    - ResNet CIFAR-10: examples/resnet-cifar10.md
+    - BERT SST-2: examples/bert-sst2.md
+    - UNet Segmentation: examples/unet-segmentation.md
+  - Contributing:
+    - Development: contributing/development.md
+    - Testing: contributing/testing.md
+    - Code Style: contributing/code-style.md
+  - Changelog: changelog.md

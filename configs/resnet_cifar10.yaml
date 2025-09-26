@@ -1,0 +1,36 @@
+# ResNet CIFAR-10 Benchmark Configuration
+dataset:
+  name: cifar10
+  params:
+    data_dir: "./data/cifar10"
+    batch_size: 128
+    num_workers: 4
+    download: true
+    normalize: true
+    augment: true
+
+model:
+  name: resnet
+  params:
+    architecture: resnet18
+    pretrained: false
+    optimizer: sgd
+    learning_rate: 0.1
+    weight_decay: 1e-4
+    momentum: 0.9
+    scheduler: step
+
+training:
+  epochs: 100
+  target_accuracy: 0.95
+  early_stopping_patience: 10
+  params:
+    mixed_precision: false
+    gradient_accumulation_steps: 1
+
+benchmark:
+  output_dir: "./results/resnet_cifar10"
+  device: cuda
+  save_checkpoints: true
+  monitor_energy: true
+  monitor_hardware: true
